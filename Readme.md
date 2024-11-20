@@ -263,3 +263,11 @@ helm ls -n istio-system
 NAME       NAMESPACE    REVISION UPDATED                                 STATUS   CHART        APP VERSION
 istio-base istio-system 1       2024-04-17 22:14:45.964722028 +0000 UTC deployed base-1.24.0  1.24.0
 ```
+
++ Install an ingress gateway:
+
+```bash
+kubectl create namespace istio-ingress
+helm install istio-ingress istio/gateway -n istio-ingress --wait
+```
+
