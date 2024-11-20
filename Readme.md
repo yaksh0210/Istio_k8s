@@ -257,7 +257,7 @@ helm install istio-base istio/base -n istio-system --set defaultRevision=default
 
 ```bash
 helm ls -n istio-system
-```
+``` 
 
 ```
 NAME       NAMESPACE    REVISION UPDATED                                 STATUS   CHART        APP VERSION
