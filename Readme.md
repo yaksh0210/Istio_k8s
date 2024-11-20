@@ -169,7 +169,7 @@
 
 + The following lists some of the pros and cons of each of the available methods:
 
-1. istioctl install 
+1. ``` istioctl install ```
 
 + The simplest and most qualified installation and management path with high security. This is the community recommended method for most use cases.
 
@@ -185,7 +185,7 @@
     
     + The istioctl command can set values automatically based on your running environment, thereby producing varying installations in different Kubernetes environments.
 
-2. istioctl manifest generate
+2. ``` istioctl manifest generate```
 
 + Generate the Kubernetes manifest and then apply with kubectl apply --prune. This method is suitable where strict auditing or augmentation of output manifests is needed.
 
@@ -203,7 +203,7 @@
     
     + Error reporting is not as robust as istioctl install for the apply step.
 
-3. Install using Helm
+3. ```Install using Helm```
 
 + Using Helm charts allows easy integration with Helm based workflows and automated resource pruning during upgrades.
 
