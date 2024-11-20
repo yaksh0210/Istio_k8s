@@ -63,8 +63,8 @@
 
         + Using configuration, we can control the flow of traffic between services. Setting up circuit breakers, timeouts, or retries can be done with a simple configuration change.
 
-    + Observability
 
+    + Observability
         + Istio gives us a better understanding of your services through tracing, monitoring, and logging, and it allows us to detect and fix issues quickly.
 
     + Security
