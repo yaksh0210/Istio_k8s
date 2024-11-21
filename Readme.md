@@ -55,6 +55,10 @@
 
 ## Introducing Istio
 
+<img src="./images/istio_im4.png">
+
+<br>
+
 + Istio is an open-source implementation of a service mesh.
 
 + Istio supports the following features:
