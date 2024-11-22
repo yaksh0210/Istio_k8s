@@ -189,6 +189,42 @@
     
     + The istioctl command can set values automatically based on your running environment, thereby producing varying installations in different Kubernetes environments.
 
+
+### Download Istio Release first
+
+1. Install the stable release first 
+
+```bash
+curl -L https://istio.io/downloadIstio | sh -
+```
+
+2. Move to the Istio package directory. For example, if the package is istio-1.24.0
+
+```bash
+cd istio-1.24.0
+```
+
+3. Add the istioctl client to your path 
+
+```bash
+export PATH=$PWD/bin:$PATH
+```
+
+#### Generate a manifest before installation
+
+```bash
+istioctl manifest generate > $HOME/generated-manifest.yaml
+```
+
++ The generated manifest can be used to inspect what exactly is installed as well as to track changes to the manifest over time.
+
+### Then install using istioctl 
+
+```bash
+istioctl install --set profile=default
+```
+
+
 2. ``` istioctl manifest generate```
 
 + Generate the Kubernetes manifest and then apply with kubectl apply --prune. This method is suitable where strict auditing or augmentation of output manifests is needed.
@@ -245,7 +281,6 @@ helm repo update
 ```bash
 helm install <release> <chart> --namespace <namespace> --create-namespace [--set <other_parameters>]
 ```
-
     
 + "chart" A path to a packaged chart, a path to an unpacked chart directory or a URL.
     
@@ -253,11 +288,15 @@ helm install <release> <chart> --namespace <namespace> --create-namespace [--set
     
 + "namespace" The namespace in which the chart is to be installed.
 
++ Here first we are installing Istio-base
+
++ Istio Base refers to a component or a package in the Istio service mesh implementation that provides cluster-wide resources and Custom Resource Definitions (CRDs) used by the Istio control plane.
+
 ```sh
 helm install istio-base istio/base -n istio-system --set defaultRevision=default
 ```
 
-+ Validate the CRD installation with the helm ls command:
++ Validate the CRD (Custom Resource Definition) installation with the helm ls command:
 
 ```bash
 helm ls -n istio-system
@@ -274,4 +313,3 @@ istio-base istio-system 1       2024-04-17 22:14:45.964722028 +0000 UTC deployed
 kubectl create namespace istio-ingress
 helm install istio-ingress istio/gateway -n istio-ingress --wait
 ```
-
